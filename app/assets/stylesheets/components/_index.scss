@@ -1,3 +1,13 @@
 // Import your components CSS files here.
 @import "alert";
 @import "navbar";
+@import "banner";
+@import "cards";
+
+.container2 {
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px;
+  align-content: space-between;
+}

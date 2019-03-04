@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render "shared/navbar" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url("Banner.jpg")%>)"
+  <div class="container">
+    <h1>Air Plant</h1>
+    <p>Aucune excuse pour vous planter</p>
+  </div>
+</div>
+  <div class="container2">
+    <div class="row">
+    <% @plants.each do |plant| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-product">
+          <p>hey</p>
+        <div class="card-product-infos">
+        <%= link_to plant.name %>
+        <p> A préciser <strong>plus tard</strong></p>
+        </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+</div>
+<div class="footer text-center" style="margin: 20px;">
+  <%= link_to "Add a new plant", "new_plant_path", class: "btn btn-primary" %>
+</div>
+
