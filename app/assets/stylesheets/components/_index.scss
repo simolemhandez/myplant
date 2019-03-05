@@ -3,6 +3,7 @@
 @import "navbar";
 @import "banner";
 @import "cards";
+@import "avatar";
 
 .container2 {
   display:flex;
@@ -11,3 +12,10 @@
   margin: auto;
   align-content: space-between;
 }
+
+// img.avatar {
+//   height:50px;
+//   width: 50px;
+//   position:absolute;
+//   right: 20px;
+// }
