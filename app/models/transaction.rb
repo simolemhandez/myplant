@@ -1,5 +1,4 @@
 class Transaction < ApplicationRecord
-  belongs_to :user
   belongs_to :plant
   validates :plant_id, presence: true
   validates :plant_id, uniqueness: { scope: :plant_id }
