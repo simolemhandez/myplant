@@ -1,2 +1,12 @@
-<p>This plant</p>
-<% @plant.name %>
+<h1><%= @plant.name %></h1>
+
+<%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, plant_path(@plant), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to '<i class="fas fa-pen"></i>'.html_safe, edit_plant_path(@plant) %>
+<%= link_to '<i class="fas fa-home"></i>'.html_safe, plants_path %>
+
+<p> Description : <%= @plant.description %></p>
+<p> Availability : <%= @plant.availability %></p>
+<p> Price per month : <%= @plant.pricepermonth %></p>
+
+<%= cl_image_tag @plant.photo, height: 300, width: 400, crop: :fill %>
+
