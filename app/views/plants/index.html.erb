@@ -1,4 +1,3 @@
-
 <h1>All plants</h1>
 
 <% if policy(Plant).create? %>
@@ -27,6 +26,7 @@
               <% end%>
           </li>
         </ul>
+        <%= cl_image_tag plant.user.photo, class:"avatar" %>
         </div>
         </div>
       </div>

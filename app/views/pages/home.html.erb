@@ -7,30 +7,29 @@
   <div class="container2">
     <div class="row">
     <% @plants.each do |plant| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-product">
-        <%= cl_image_tag plant.photo, width: 120, height: 120, crop: :fill %>
-        <div class="card-product-infos">
-        <%= link_to plant.name, plant_path(plant)  %>
-        <ul>
+      <%= link_to plant_path(plant)  do %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card-product">
+          <%= cl_image_tag plant.photo, crop: :fill %>
+          <div class="card-product-infos">
+          <ul>
+          <li><%= plant.name %></li>
           <li> <p> <%=plant.description %> </p></li>
           <li> <p> Origine :  <%= plant.origin %> </p></li>
           <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
-          <li>
-            <% if plant.availability == true %>
-                <p id="available"><%= "Disponible" %> </p></li>
-              <% else%>
-                <p id="unavailable"><%= "Indisponible" %> </p>
-              <% end%>
-          </li>
-        </ul>
+                <% if plant.availability == true %>
+                  <p id="available"><%= "Disponible" %> </p></li>
+                <% else%>
+                  <p id="unavailable"><%= "Indisponible" %> </p>
+                <% end%>
+            </li>
+            <li> <p id="owner"> Posté par :<%= plant.user.name %> </p> </li>
+          </ul>
+          <%= cl_image_tag plant.user.photo, class:"avatar" %>
         </div>
         </div>
       </div>
-    <% end %>
+      <%end %>
+      <% end %>
     </div>
 </div>
-<div class="footer text-center" style="margin: 20px;">
-  <%= link_to "Ajouter une plante", new_plant_path, class: "btn btn-primary" %>
-</div>
-

@@ -6,7 +6,6 @@
   align-items: center;
   margin: 15px 15px 15px 15px;
   height: 300px;
-
 }
 
 .card-product img {
@@ -22,12 +21,12 @@
 }
 
 .card-product p {
-  font-size: 16px;
+  font-size: 14px;
+  color: #40514e;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
-  text-decoration: none;
 }
 
 .card-product .card-product-infos {
@@ -36,6 +35,7 @@
 
 ul {
   list-style-type:none;
+  text-decoration: none;
 }
 
 #available {
@@ -50,3 +50,8 @@ ul {
   color:#ff5959;
 }
 
+#owner {
+  font-size: 12px;
+  font-weight: thin;
+  font-style: italic;
+}
