@@ -9,4 +9,8 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to profile_path
   end
+
+  def plant_params
+    params.require(:plant).permit(:id, :name, :location, :photo, :photo_cache)
+  end
 end

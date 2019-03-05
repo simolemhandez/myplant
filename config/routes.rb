@@ -6,5 +6,4 @@ Rails.application.routes.draw do
     resources :transactions, only: [ :index, :new, :create ]
   end
   get 'profile', to: 'users#profile', as: :profile
-  get 'editprofile', to: 'users#profile#edit', as: :editprofile
 end
