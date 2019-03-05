@@ -8,11 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'K2D', sans-serif;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+  font-family: 'K2D', sans-serif;
 }
 
 /* User Avatar */
@@ -20,6 +22,7 @@
   height: 35px;
   width: 35px;
   border-radius: 50%;
+  font-family: 'K2D', sans-serif;
 }
 
 /* Right section */
@@ -27,22 +30,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'K2D', sans-serif;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  font-family: 'K2D', sans-serif;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: 'Leila', serif;
+  font-family: 'K2D', sans-serif;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #F85C68;
   text-decoration: none;
+  font-family: 'K2D', sans-serif;
 }
 
 /* Dropdown menu */
@@ -50,6 +58,7 @@
   margin-top: 15px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+  font-family: 'K2D', sans-serif;
 }
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
@@ -58,10 +67,12 @@
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
+  font-family: 'K2D', sans-serif;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
   color: black !important;
+  font-family: 'K2D', sans-serif;
 }
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
@@ -74,4 +85,5 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+  font-family: 'K2D', sans-serif;
 }

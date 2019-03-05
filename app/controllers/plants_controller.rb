@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
-    def index
-    @plants = plant.all
+  def index
+    @plants = Plant.all
   end
 
   def show
@@ -8,13 +8,13 @@ class PlantsController < ApplicationController
   end
 
   def new
-    @plant = plant.new
+    @plant = Plant.new
   end
 
   def create
-    @plant = plant.new(plant_params)
+    @plant = Plant.new(plant_params)
     @plant.save
-    redirect_to plants_path
+    redirect_to plant_path(plant)
   end
 
   private
