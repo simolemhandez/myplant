@@ -9,10 +9,21 @@
     <% @plants.each do |plant| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card-product">
-          <p>hey</p>
+        <%= cl_image_tag plant.photo, width: 120, height: 120, crop: :fill %>
         <div class="card-product-infos">
-        <%= link_to plant.name %>
-        <p> A préciser <strong>plus tard</strong></p>
+        <%= link_to plant.name, plant_path(plant)  %>
+        <ul>
+          <li> <p> <%=plant.description %> </p></li>
+          <li> <p> Origine :  <%= plant.origin %> </p></li>
+          <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
+          <li>
+            <% if plant.availability == true %>
+                <p id="available"><%= "Disponible" %> </p></li>
+              <% else%>
+                <p id="unavailable"><%= "Indisponible" %> </p>
+              <% end%>
+          </li>
+        </ul>
         </div>
         </div>
       </div>
@@ -20,6 +31,6 @@
     </div>
 </div>
 <div class="footer text-center" style="margin: 20px;">
-  <%= link_to "Add a new plant", "new_plant_path", class: "btn btn-primary" %>
+  <%= link_to "Ajouter une plante", new_plant_path, class: "btn btn-primary" %>
 </div>
 
