@@ -23,9 +23,9 @@
                   <p id="unavailable"><%= "Indisponible" %> </p>
                 <% end%>
             </li>
-            <li> <p id="owner"> Posté par :<%= plant.user.name %> </p> </li>
+            <li> <p id="owner"> Posté par : <%= plant.user.name %> </p> </li>
           </ul>
-          <%= cl_image_tag plant.user.photo, class:"avatar" %>
+          <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
         </div>
         </div>
       </div>

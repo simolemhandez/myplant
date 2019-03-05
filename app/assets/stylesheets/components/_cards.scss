@@ -6,6 +6,7 @@
   align-items: center;
   margin: 15px 15px 15px 15px;
   height: 300px;
+  position:relative;
 }
 
 .card-product img {
@@ -55,3 +56,11 @@ ul {
   font-weight: thin;
   font-style: italic;
 }
+
+img.card-avatar {
+  height:50px;
+  width: 50px;
+  position:absolute;
+  right: 20px;
+}
+
