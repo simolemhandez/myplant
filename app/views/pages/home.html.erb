@@ -12,7 +12,18 @@
         <%= cl_image_tag plant.photo, width: 120, height: 120, crop: :fill %>
         <div class="card-product-infos">
         <%= link_to plant.name, plant_path(plant)  %>
-        <p> Ingrédients <strong>+ de détails</strong></p>
+        <ul>
+          <li> <p> <%=plant.description %> </p></li>
+          <li> <p> Origine :  <%= plant.origin %> </p></li>
+          <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
+          <li>
+            <% if plant.availability == true %>
+                <p id="available"><%= "Disponible" %> </p></li>
+              <% else%>
+                <p id="unavailable"><%= "Indisponible" %> </p>
+              <% end%>
+          </li>
+        </ul>
         </div>
         </div>
       </div>
