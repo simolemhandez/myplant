@@ -1,8 +1,12 @@
+<%= render "shared/navbar" %>
+
+
 <h1>Edit plant</h1>
 <%= simple_form_for(@plant) do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :availability %>
+  <%= f.input :origin %>
   <%= f.input :pricepermonth %>
   <%= f.input :photo %>
   <%= f.submit %>
