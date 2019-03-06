@@ -4,7 +4,7 @@
 
 <div class="container">
   <%= simple_form_for [@plant, @transaction] do |f| %>
-    <%= f.input :date %>
+    <%= f.input :date, as: :date %>
     <%= f.input :time %>
     <%= f.input :rating %>
     <%= f.submit %>

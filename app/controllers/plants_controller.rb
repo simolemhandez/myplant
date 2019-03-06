@@ -4,7 +4,11 @@ class PlantsController < ApplicationController
 
   def index
     @search = { name: params[:name], origin: params[:origin] }
-    @plants = policy_scope(Plant).where(name: params[:name], origin: params[:origin])
+    if @search.values.uniq.first.nil?
+      @plants = policy_scope(Plant)
+    else
+      @plants = policy_scope(Plant).where(name: params[:name], origin: params[:origin])
+    end
   end
 
   def show
@@ -22,7 +26,7 @@ class PlantsController < ApplicationController
     @plant.user = current_user
     authorize @plant
     @plant.save
-    redirect_to plants_path
+    redirect_to root_path
   end
 
   def edit

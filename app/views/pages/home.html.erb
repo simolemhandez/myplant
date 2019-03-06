@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url("Banner.jpg")%>)"
   <div class="container">
-    <h1>Air Plant</h1>
+    <h1>Planteasy</h1>
     <p>Aucune excuse pour vous planter</p>
     <div class="iform">
       <form action="/plants" method="get">
@@ -11,6 +11,7 @@
     </div>
   </div>
 </div>
+
   <div class="container2">
     <div class="row">
     <% @plants.each do |plant| %>
@@ -20,10 +21,15 @@
           <%= cl_image_tag plant.photo, crop: :fill %>
           <div class="card-product-infos">
           <ul>
-          <li><%= plant.name %></li>
-          <li> <p> <%=plant.description %> </p></li>
-          <li> <p> Origine :  <%= plant.origin %> </p></li>
-          <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
+          <li>
+            <% plant.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </li>
+            <li><%= plant.name %></li>
+            <li> <p> <%=plant.description %> </p></li>
+            <li> <p> Origine :  <%= plant.origin %> </p></li>
+            <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
                 <% if plant.availability == true %>
                   <p id="available"><%= "Disponible" %> </p></li>
                 <% else%>
@@ -35,11 +41,16 @@
           <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
         </div>
         </div>
+       <div class="btn-book">
+          <%= link_to "Book", new_plant_transaction_path(plant) %>
+        </div>
       </div>
       <%end %>
       <% end %>
     </div>
 </div>
+
+
 
 <div class="footer">
   <div class="footer-links">

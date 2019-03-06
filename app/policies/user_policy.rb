@@ -8,4 +8,8 @@ class UserPolicy < ApplicationPolicy
   def profile?
     record == user
   end
+
+  def go_to_profile?
+    return true
+  end
 end
