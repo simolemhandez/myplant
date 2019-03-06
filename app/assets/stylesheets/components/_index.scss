@@ -4,6 +4,7 @@
 @import "banner";
 @import "cards";
 @import "avatar";
+@import "button";
 @import "footer";
 @import "button";
 @import "tabs";
@@ -16,6 +17,11 @@
   align-content: space-between;
 }
 
+
+.iform {
+  text-align: center;
+
+  
 .container1 {
   display:flex;
   width: 200px;

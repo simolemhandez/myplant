@@ -1,6 +1,10 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+  skip_after_action :verify_authorized, only: :index
+
   def index
-    @plants = policy_scope(Plant)
+    @search = { name: params[:name], origin: params[:origin] }
+    @plants = policy_scope(Plant).where(name: params[:name], origin: params[:origin])
   end
 
   def show
