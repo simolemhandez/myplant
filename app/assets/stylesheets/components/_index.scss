@@ -5,6 +5,7 @@
 @import "cards";
 @import "avatar";
 @import "button";
+@import "footer";
 
 .container2 {
   display:flex;
@@ -14,8 +15,18 @@
   align-content: space-between;
 }
 
+
 .iform {
   text-align: center;
+
+  
+.container1 {
+  display:flex;
+  width: 200px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  align-content: space-between;
 }
 
 // img.avatar {

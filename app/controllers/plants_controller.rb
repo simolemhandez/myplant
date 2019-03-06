@@ -27,10 +27,12 @@ class PlantsController < ApplicationController
 
   def edit
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def update
     @plant = Plant.find(params[:id])
+    authorize @plant
     @plant.update(plant_params)
     redirect_to plant_path(@plant)
   end
