@@ -4,9 +4,19 @@
 @import "banner";
 @import "cards";
 @import "avatar";
+@import "footer";
 
 .container2 {
   display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  align-content: space-between;
+}
+
+.container1 {
+  display:flex;
+  width: 200px;
   justify-content: space-around;
   flex-wrap: wrap;
   margin: auto;
