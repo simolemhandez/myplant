@@ -1,11 +1,4 @@
-/* -------------------------------------
- * Your CSS code for flash notices and alerts
-* ------------------------------------- */
-
-
-
-
-.alert {
+.notice {
   padding: 16px 24px;
   display: flex;
   justify-content: space-between;
@@ -14,8 +7,17 @@
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
   border-radius: 4px;
   margin: 8px;
-  border: 2px solid #FFC65A;
+  border: 2px solid #1EDD88;
   color: black;
 }
 
+.notice-success {
+}
 
+.notice-warning {
+  border: 2px solid #FFC65A;
+}
+
+.notice-danger {
+  border: 2px solid #FD1015;
+}
