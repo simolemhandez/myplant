@@ -1,8 +1,7 @@
-<h1> New plant</h1>
 
-<%= link_to '<i class="fas fa-home"></i>'.html_safe, plants_path %>
 
 <div class="container">
+<h1> Mettez une nouvelle plante en location </h1>
   <%= simple_form_for(@plant) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>

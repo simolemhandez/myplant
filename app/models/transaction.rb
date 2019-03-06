@@ -5,4 +5,5 @@ class Transaction < ApplicationRecord
   validates :user_id, presence: true
   validates :time, presence: true
   validates :date, presence: true
+  # validates :rating, scope: {1, 2, 3, 4, 5}
 end

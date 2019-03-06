@@ -21,9 +21,8 @@
             <ul>
               <li><%= Plant.find(transaction.plant_id).name %></li>
               <li> <p> <%=Plant.find(transaction.plant_id).description %> </p></li>
-              <li> <p> Date :  <%= transaction.date %> </p></li>
-              <li> <p> Time :  <%= transaction.time %> </p></li>
               <li> <p> Prix mensuel : <%= Plant.find(transaction.plant_id).pricepermonth%>€ </p></li>
+              <li> <p> You have booked this plant starting <strong><%= transaction.date %> </strong> for <strong> <%= transaction.time %></strong>.</p></li>
               <li> <p id="owner"> Posté par : <%= Plant.find(transaction.plant_id).user.name %> </p> </li>
             </ul>
             <%= cl_image_tag Plant.find(transaction.plant_id).user.photo, class: "card-avatar avatar" %>

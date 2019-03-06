@@ -8,13 +8,21 @@
   <% end %>
 <%= link_to '<i class="fas fa-home"></i>'.html_safe, plants_path %>
 
-<p> <strong> User : </strong> <%= @plant.user.email %></p>
 <p> <strong>Description :</strong> <%= @plant.description %></p>
 <p> <strong>Availability : </strong><%= @plant.availability %></p>
 <p> <strong>Origin : </strong><%= @plant.origin %></p>
 <p> <strong>Price per month : </strong><%= @plant.pricepermonth %></p>
 
 <%= cl_image_tag @plant.photo, height: 300, width: 400, crop: :fill %>
+
+<div class="container3">
+  <h1>Posté par : <%= link_to @plant.user.name, go_to_profile_path(@plant.user.id) %> </h1>
+
+  <h1><%= @plant.user.email %> </h1>
+  <%= cl_image_tag @plant.user.photo, height: 300, width: 400, crop: :fill, class: "card-avatar avatar" %>
+  <h1><%= @plant.user.location %> </h1>
+</div>
+
 
 
 <div class="footer">
