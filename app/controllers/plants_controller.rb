@@ -1,6 +1,17 @@
 class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant)
+    users = []
+    @plants.each do |plant|
+      users << plant.user
+    end
+    users.uniq!
+    @markers = users.map do |user|
+      {
+        lng: user.longitude,
+        lat: user.latitude
+      }
+    end
   end
 
   def show
