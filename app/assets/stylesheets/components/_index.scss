@@ -5,6 +5,8 @@
 @import "cards";
 @import "avatar";
 @import "footer";
+@import "button";
+@import "tabs";
 
 .container2 {
   display:flex;
@@ -22,6 +24,7 @@
   margin: auto;
   align-content: space-between;
 }
+
 
 // img.avatar {
 //   height:50px;

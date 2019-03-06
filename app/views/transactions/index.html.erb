@@ -1,1 +1,49 @@
 
+
+<ul class="list-inline tabs-underlined">
+  <li>
+    <%= link_to "Mes achats", "#", class: "tab-underlined active" %>
+  </li>
+  <li>
+    <%= link_to "Mes plantes proposées", profile_path, class: "tab-underlined" %>
+  </li>
+</ul>
+
+</div>
+  <div class="container2">
+    <div class="row">
+    <% @transactions.each do |transaction| %>
+      <%= link_to plant_path(Plant.find(transaction.plant_id))  do %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card-product">
+            <%= cl_image_tag Plant.find(transaction.plant_id).photo, crop: :fill %>
+            <div class="card-product-infos">
+            <ul>
+              <li><%= Plant.find(transaction.plant_id).name %></li>
+              <li> <p> <%=Plant.find(transaction.plant_id).description %> </p></li>
+              <li> <p> Date :  <%= transaction.date %> </p></li>
+              <li> <p> Time :  <%= transaction.time %> </p></li>
+              <li> <p> Prix mensuel : <%= Plant.find(transaction.plant_id).pricepermonth%>€ </p></li>
+              <li> <p id="owner"> Posté par : <%= Plant.find(transaction.plant_id).user.name %> </p> </li>
+            </ul>
+            <%= cl_image_tag Plant.find(transaction.plant_id).user.photo, class: "card-avatar avatar" %>
+          </div>
+        </div>
+      </div>
+      <%end %>
+      <% end %>
+    </div>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    The best plants you'll ever had <i class="fas fa-heart"></i>
+  </div>
+</div>

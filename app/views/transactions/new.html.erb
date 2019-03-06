@@ -1,0 +1,25 @@
+<h1>New transactions</h1>
+
+<%= link_to '<i class="fas fa-home"></i>'.html_safe, plants_path %>
+
+<div class="container">
+  <%= simple_form_for [@plant, @transaction] do |f| %>
+    <%= f.input :date %>
+    <%= f.input :time %>
+    <%= f.input :rating %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    The best plants you'll ever had <i class="fas fa-heart"></i>
+  </div>
+</div>
