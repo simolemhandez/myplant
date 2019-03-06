@@ -4,9 +4,8 @@
 @import "banner";
 @import "cards";
 @import "avatar";
-@import "button";
+// @import "button";
 @import "footer";
-@import "button";
 @import "tabs";
 
 .container2 {
@@ -20,8 +19,8 @@
 
 .iform {
   text-align: center;
+}
 
-  
 .container1 {
   display:flex;
   width: 200px;
@@ -32,9 +31,9 @@
 }
 
 
-// img.avatar {
-//   height:50px;
-//   width: 50px;
-//   position:absolute;
-//   right: 20px;
-// }
+img.avatar {
+  height:50px;
+  width: 50px;
+  position:absolute;
+  right: 20px;
+}
