@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+       <%= link_to "Nouvelle offre", new_plant_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trouver des plantes", plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Mes transactions", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-
+      <%= link_to "Mes plantes", transactions_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">

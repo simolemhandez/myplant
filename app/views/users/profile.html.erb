@@ -1,17 +1,63 @@
-<h1><%= @user.email %> </h1>
-<h1><%= @user.name %> </h1>
-<h1><%= @user.location %> </h1>
-<%= cl_image_tag @user.photo, class: "avatar dropdown-toggle", height: 300, width: 400, crop: :fill %>
+<ul class="list-inline tabs-underlined">
+  <li>
+    <%= link_to "Mes achats", transactions_path, class: "tab-underlined" %>
+  </li>
+  <li>
+    <%= link_to "Mes plantes proposées", "#", class: "tab-underlined active" %>
+  </li>
+</ul>
 
-<%= link_to "Edit profile", edit_user_registration_path %>
+<div class="row">
+<% @user.plants.each do |plant| %>
+  <%= link_to plant_path(plant)  do %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card-product">
+        <%= cl_image_tag plant.photo, crop: :fill %>
+        <div class="card-product-infos">
+        <ul>
+          <li><%= plant.name %></li>
+          <li> <p> <%=plant.description %> </p></li>
+          <li> <p> Origine :  <%= plant.origin %> </p></li>
+          <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
+              <% if plant.availability == true %>
+                <p id="available"><%= "Disponible" %> </p></li>
+              <% else%>
+                <p id="unavailable"><%= "Indisponible" %> </p>
+              <% end%>
+          </li>
+          <li> <p id="owner"> Posté par : <%= plant.user.name %> </p> </li>
+        </ul>
+        <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
+      </div>
+    </div>
+  </div>
+  <%end %>
+  <% end %>
+</div>
 
-<% @user.plants.each do |plant|%>
-  <h2>  <%= plant.name %></h2>
-  <p> Description : <%= plant.description %></p>
-  <p> Availability : <%= plant.availability %></p>
-  <p> Origin : <%= plant.origin %></p>
-  <p> Price per month : <%= plant.pricepermonth %></p>
-<% end %>
+<div class="container3">
+  <h1><%= @user.email %> </h1>
+  <h1><%= @user.name %> </h1>
+  <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill, class: "card-avatar avatar" %>
+  <h1><%= @user.location %> </h1>
+  <%= link_to "Edit profile", edit_user_registration_path %>
+</div>
 
 
 
+
+
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    The best plants you'll ever had <i class="fas fa-heart"></i>
+  </div>
+</div>

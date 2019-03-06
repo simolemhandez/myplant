@@ -1,4 +1,7 @@
 class PlantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+  skip_after_action :verify_authorized, only: :index
+
   def index
     @plants = policy_scope(Plant)
     users = []
@@ -12,6 +15,8 @@ class PlantsController < ApplicationController
         lat: user.latitude
       }
     end
+    # @search = { name: params[:name], origin: params[:origin] }
+    # @plants = policy_scope(Plant).where(name: params[:name], origin: params[:origin])
   end
 
   def show
@@ -34,10 +39,12 @@ class PlantsController < ApplicationController
 
   def edit
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def update
     @plant = Plant.find(params[:id])
+    authorize @plant
     @plant.update(plant_params)
     redirect_to plant_path(@plant)
   end

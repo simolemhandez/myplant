@@ -1,7 +1,11 @@
 <h1><%= @plant.name %></h1>
 
-<%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, plant_path(@plant), method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to '<i class="fas fa-pen"></i>'.html_safe, edit_plant_path(@plant) %>
+<% if policy(@plant).edit? %>
+  <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, plant_path(@plant), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
+<% if policy(@plant).update? %>
+  <%= link_to '<i class="fas fa-pen"></i>'.html_safe, edit_plant_path(@plant) %>
+  <% end %>
 <%= link_to '<i class="fas fa-home"></i>'.html_safe, plants_path %>
 
 <p> <strong> User : </strong> <%= @plant.user.email %></p>
@@ -12,3 +16,16 @@
 
 <%= cl_image_tag @plant.photo, height: 300, width: 400, crop: :fill %>
 
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    The best plants you'll ever had <i class="fas fa-heart"></i>
+  </div>
+</div>
