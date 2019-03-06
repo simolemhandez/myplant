@@ -1,29 +1,32 @@
-<h1>All plants</h1>
+<h1>Toutes les plantes disponibles</h1>
 
 </div>
   <div class="container2">
     <div class="row">
     <% @plants.each do |plant| %>
       <%= link_to plant_path(plant)  do %>
-        <div class="col-xs-12 col-sm-4">
+        <div data-aos="fade-up" class="col-xs-12 col-sm-4">
           <div class="card-product">
-          <%= cl_image_tag plant.photo, crop: :fill %>
-          <div class="card-product-infos">
-          <ul>
-          <li><%= plant.name %></li>
-          <li> <p> <%=plant.description %> </p></li>
-          <li> <p> Origine :  <%= plant.origin %> </p></li>
-          <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
-                <% if plant.availability == true %>
-                  <p id="available"><%= "Disponible" %> </p></li>
-                <% else%>
-                  <p id="unavailable"><%= "Indisponible" %> </p>
-                <% end%>
-            </li>
-            <li> <p id="owner"> Posté par : <%= plant.user.name %> </p> </li>
-          </ul>
-          <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
+            <%= cl_image_tag plant.photo, crop: :fill %>
+            <div class="card-product-infos">
+            <ul>
+              <li><%= plant.name %></li>
+              <li> <p> <%=plant.description %> </p></li>
+              <li> <p> Origine :  <%= plant.origin %> </p></li>
+              <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
+                  <% if plant.availability == true %>
+                    <p id="available"><%= "Disponible" %> </p></li>
+                  <% else%>
+                    <p id="unavailable"><%= "Indisponible" %> </p>
+                  <% end%>
+              </li>
+              <li> <p id="owner"> Posté par : <%= plant.user.name %> </p> </li>
+            </ul>
+            <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
+          </div>
         </div>
+        <div class="btn-book">
+          <%= link_to "Book", new_plant_transaction_path(plant) %>
         </div>
       </div>
       <%end %>

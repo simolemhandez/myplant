@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :plants do
-    resources :transactions, only: [ :index, :new, :create ]
+    resources :transactions, only: [ :new, :create ]
   end
   get 'profile', to: 'users#profile', as: :profile
+  resources :transactions, only: :index
 end

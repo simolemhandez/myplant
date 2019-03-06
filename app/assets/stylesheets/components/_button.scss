@@ -1,3 +1,4 @@
+
 .btn-medium {
   color: #999999;
   border: 1px solid #999999;
@@ -24,4 +25,19 @@
   background: #3ac162;
   text-decoration: none;
   color: white;
+
+.btn-book {
+  background: transparent;
+  border-radius: 50px;
+  border-color: rgb(150,150,150);
+  border: 1px solid;
+  color: rgb(150,150,150);
+  font-weight: lighter;
+  padding: 10px 15px;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+.btn-book:hover {
+  opacity: 1;
 }
