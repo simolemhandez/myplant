@@ -4,6 +4,7 @@
 @import "banner";
 @import "cards";
 @import "avatar";
+@import "button";
 
 .container2 {
   display:flex;
@@ -11,6 +12,10 @@
   flex-wrap: wrap;
   margin: auto;
   align-content: space-between;
+}
+
+.iform {
+  text-align: center;
 }
 
 // img.avatar {
