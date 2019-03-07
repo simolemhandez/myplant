@@ -35,7 +35,7 @@
                   <p id="unavailable"><%= "Indisponible" %> </p>
                 <% end%>
             </li>
-            <li> <p id="owner"> Posté par : <%= plant.user.name %> </p> </li>
+            <li> <p id="owner"> Posté par : <%= link_to plant.user.name, go_to_profile_path(plant.user.id) %> </p> </li>
           </ul>
           <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
         </div>

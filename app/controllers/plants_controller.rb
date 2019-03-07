@@ -52,6 +52,7 @@ class PlantsController < ApplicationController
 
   def destroy
     @plant = Plant.find(params[:id])
+    authorize @plant
     @plant.destroy
     redirect_to plants_path
   end

@@ -12,6 +12,7 @@
   </li>
 </ul>
 
+<h1> Plantes louées </h1>
 </div>
   <div class="container2">
     <div class="row">
@@ -25,10 +26,36 @@
               <li><%= Plant.find(transaction.plant_id).name %></li>
               <li> <p> <%=Plant.find(transaction.plant_id).description %> </p></li>
               <li> <p> Prix mensuel : <%= Plant.find(transaction.plant_id).pricepermonth%>€ </p></li>
-              <li> <p> You have booked this plant starting <strong><%= transaction.date %> </strong> for <strong> <%= transaction.time %></strong>.</p></li>
+              <li> <p> Vous avez loué cette plante <strong><%= transaction.date %> </strong> pour <strong> <%= transaction.time %></strong>.</p></li>
               <li> <p id="owner"> Posté par : <%= Plant.find(transaction.plant_id).user.name %> </p> </li>
             </ul>
             <%= cl_image_tag Plant.find(transaction.plant_id).user.photo, class: "card-avatar avatar" %>
+          </div>
+        </div>
+      </div>
+      <%end %>
+      <% end %>
+    </div>
+</div>
+
+<h1> Mes plantes en location </h1>
+</div>
+  <div class="container2">
+    <div class="row">
+    <% @my_transactions.each do |transaction| %>
+      <%= link_to plant_path(Plant.find(transaction.plant_id))  do %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card-product">
+            <%= cl_image_tag Plant.find(transaction.plant_id).photo, crop: :fill %>
+            <div class="card-product-infos">
+            <ul>
+              <li><%= Plant.find(transaction.plant_id).name %></li>
+              <li> <p> <%=Plant.find(transaction.plant_id).description %> </p></li>
+              <li> <p> Prix mensuel : <%= Plant.find(transaction.plant_id).pricepermonth%>€ </p></li>
+              <li> <p> Vous avez mis en location cette plante à partir du <strong><%= transaction.date %> </strong> pour <strong> <%= transaction.time %></strong>.</p></li>
+              <li> <p id="owner"> Loué à : <%= User.find(transaction.user_id).name %> </p> </li>
+            </ul>
+            <%= cl_image_tag User.find(transaction.user_id).photo, class: "card-avatar avatar" %>
           </div>
         </div>
       </div>
