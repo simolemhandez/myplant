@@ -1,13 +1,15 @@
 
 <h1>Edit plant</h1>
 <%= simple_form_for(@plant) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :availability %>
-  <%= f.input :origin %>
-  <%= f.input :pricepermonth %>
-  <%= f.input :photo %>
-  <%= f.submit %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :origin %>
+    <%= f.input :availability %>
+    <%= f.input :pricepermonth %>
+    <%= f.input :address %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit %>
 <% end %>
 
 <div class="footer">
