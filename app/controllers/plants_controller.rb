@@ -3,14 +3,21 @@ class PlantsController < ApplicationController
   skip_after_action :verify_authorized, only: :index
 
   def index
-    @search = { name: params[:name], origin: params[:origin] }
-    if @search.values.uniq.first.nil?
-      @plants = policy_scope(Plant)
+    # @search = { name: params[:name], origin: params[:origin] }
+    # if @search.values.uniq.first.nil?
+    #   @plants = policy_scope(Plant)
+    # else
+    #   @plants = policy_scope(Plant).where(name: params[:name], origin: params[:origin])
+    # end
+
+    if params[:query].present?
+      @plants = policy_scope(Plant).where("name ILIKE ?", "%#{params[:query]}%")
+      # raise
     else
-      @plants = policy_scope(Plant).where(name: params[:name], origin: params[:origin])
+      @plants = Plant.all
     end
 
-    @plants = Plant.where.not(latitude: nil, longitude: nil)
+    # @plants = Plant.where.not(latitude: nil, longitude: nil)
 
     @markers = @plants.map do |plant|
       {
