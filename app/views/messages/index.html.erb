@@ -1,0 +1,48 @@
+
+<ul class="list-inline tabs-underlined">
+  <li>
+    <%= link_to "Mes achats", transactions_path, class: "tab-underlined" %>
+  </li>
+  <li>
+    <%= link_to "Mes plantes proposées", profile_path, class: "tab-underlined" %>
+  </li>
+  <li>
+    <%= link_to "Mes discussions", "#", class: "tab-underlined active" %>
+  </li>
+</ul>
+
+<ul class="inbox">
+  <% @messages.each do |message| %>
+      <li class="message">
+            <%= cl_image_tag Plant.find(message.plant_id).user.photo, class: "message-avatar" %>
+            <div class="message-name">
+              <h2><%= Plant.find(message.plant_id).user.name %></h2>
+              <p> <%= Time.now.strftime("%d of %B") %> </p>
+            </div>
+            <div class="message-body">
+              <h2><%= message.content.split[0...2].join(' ') %>...</h2>
+              <p> <%= message.content %> </p>
+            </div>
+             <div class="message-status declined">
+              <h2><%= Plant.find(message.plant_id).availability%></h2>
+              <p><%= Plant.find(message.plant_id).pricepermonth%>€</p>
+            </div>
+      </li>
+  <% end %>
+</ul>
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    The best plants you'll ever had <i class="fas fa-heart"></i>
+  </div>
+</div>
+
+

@@ -15,7 +15,6 @@
   <div class="container2">
     <div class="row">
     <% @plants.each do |plant| %>
-      <%= link_to plant_path(plant)  do %>
         <div class="col-xs-12 col-sm-4">
           <div class="card-product">
           <%= cl_image_tag plant.photo, crop: :fill %>
@@ -26,7 +25,7 @@
               <i class="fas fa-star"></i>
             <% end %>
           </li>
-            <li><%= plant.name %></li>
+            <li><%= link_to plant.name, plant_path(plant) %></li>
             <li> <p> <%=plant.description %> </p></li>
             <li> <p> Origine :  <%= plant.origin %> </p></li>
             <li> <p> Prix mensuel : <%= plant.pricepermonth%>€ </p></li>
@@ -43,10 +42,11 @@
         </div>
        <div class="btn-book">
           <%= link_to "Book", new_plant_transaction_path(plant) %>
+          <%= link_to "Discuss", new_plant_message_path(plant) %>
         </div>
       </div>
       <%end %>
-      <% end %>
+
     </div>
 </div>
 
