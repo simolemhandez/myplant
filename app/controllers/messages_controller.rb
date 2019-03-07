@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   def index
     @messages = policy_scope(Message).where(user: current_user)
+    @other_messages = Message.received_by(current_user)
   end
 
   def new

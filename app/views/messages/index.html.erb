@@ -29,6 +29,23 @@
             </div>
       </li>
   <% end %>
+    <% @other_messages.each do |message| %>
+      <li class="message">
+            <%= cl_image_tag User.find(message.user_id).photo, class: "message-avatar" %>
+            <div class="message-name">
+              <h2><%= User.find(message.user_id).name %></h2>
+              <p> <%= Time.now.strftime("%d of %B") %> </p>
+            </div>
+            <div class="message-body">
+              <h2>Vous: <%= message.content.split[0...2].join(' ') %>...</h2>
+              <p> <%= message.content %> </p>
+            </div>
+             <div class="message-status declined">
+              <h2><%= Plant.find(message.plant_id).availability%></h2>
+              <p><%= Plant.find(message.plant_id).pricepermonth%>€</p>
+            </div>
+      </li>
+  <% end %>
 </ul>
 
 
