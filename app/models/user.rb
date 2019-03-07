@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :plants
   has_many :transactions
+  has_many :messages
   mount_uploader :photo, PhotoUploader
 end

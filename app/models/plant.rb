@@ -1,5 +1,6 @@
 class Plant < ApplicationRecord
   has_many :transactions
+  has_many :messages
   belongs_to :user
   validates :name, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader

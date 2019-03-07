@@ -1,0 +1,86 @@
+.inbox {
+  padding-left: 0px;
+  list-style: none;
+  border: 1px solid rgb(230,230,230);
+  margin-top: 9px;
+}
+.message {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(230,230,230);
+  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.message-name {
+  width: 60px;
+}
+.message-body {
+  padding: 10px 10px;
+  margin : 15px;
+  flex-grow: 1;
+}
+
+.message-status  {
+  margin-bottom: 50px;
+  margin-right: 10px;
+  height: 10px;
+}
+
+.message-name h2 {
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.message-name p {
+  margin-top: 5px;
+    font-size: 13px;
+  font-weight: lighter;
+  color: rgb(180,180,180);
+}
+
+.message-body h2 {
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.message-body p {
+  margin-top: 5px;
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgb(180,180,180);
+}
+
+.message-status h2 {
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+
+.message-status p {
+  margin-top: 5px;
+  color: black;
+  font-size: 13px;
+  font-weight: lighter;
+  color: rgb(180,180,180);
+}
+
+.pending h2 {
+  color: rgb(200,200,200);
+  font-size: 13px;
+}
+
+.declined h2 {
+  color: rgb(236,50,35);
+  font-size: 13px;
+}
+
+.accepted h2 {
+  color: rgb(55,125,34);
+  font-size: 13px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+}
+
