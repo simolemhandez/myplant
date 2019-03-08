@@ -14,7 +14,8 @@
 </ul>
 
 </div>
-  <div class="container2">
+
+  <div class=" container-index">
     <div class="row">
     <% @my_transactions.each do |transaction| %>
       <%= link_to plant_path(Plant.find(transaction.plant_id))  do %>
@@ -39,7 +40,9 @@
             <%= cl_image_tag User.find(transaction.user_id).photo, class: "card-avatar avatar" %>
           </div>
         </div>
-            <%= link_to "Accept", accept_transaction_path(transaction.id), class: "btn-book"  %>
+        <div class="links">
+            <%= link_to "Accept", accept_transaction_path(transaction.id), class: "btn btn-book"  %>
+        </div>
       </div>
       <%end %>
       <% end %>
