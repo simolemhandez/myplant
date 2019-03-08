@@ -9,13 +9,15 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=K2D:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
-    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_pack_tag 'application' %> <!-- NEW! -->
+
   </head>
   <body>
     <%= render "shared/navbar" %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application' %> <!-- NEW! -->
   </body>
 </html>
