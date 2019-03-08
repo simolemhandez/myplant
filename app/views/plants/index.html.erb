@@ -1,4 +1,6 @@
-<h1>Toutes les plantes disponibles</h1>
+
+
+<h1 class="title">Toutes les plantes disponibles</h1>
 
     <div class="iform">
       <form action="/plants" method="get">
@@ -9,7 +11,7 @@
     </div>
 
 
-
+<div class="container-index">
   <div class="container2">
     <div class="row">
     <% @plants.each do |plant| %>
@@ -33,13 +35,21 @@
           <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
           </div>
         </div>
-         <div class="btn-book">
-          <%= link_to "Book", new_plant_transaction_path(plant) %>
-          <%= link_to "Discuss", new_plant_message_path(plant) %>
+        <div class="links">
+         <div type="button" class="btn btn-book">
+            <%= link_to "Book", new_plant_transaction_path(plant) %>
+          </div>
+          <div type="button" class="btn btn-discuss"">
+            <%= link_to "Discuss", new_plant_message_path(plant) %>
+          </div>
         </div>
       </div>
       <% end %>
     </div>
+</div>
+
+
+
 </div>
 
 <div
@@ -50,6 +60,7 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 >
 </div>
+
 
 <div class="footer">
   <div class="footer-links">
