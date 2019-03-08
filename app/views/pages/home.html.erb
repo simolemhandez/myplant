@@ -3,11 +3,18 @@
     <h1>Planteasy</h1>
     <p>Aucune excuse pour vous planter</p>
     <div class="iform">
-      <form action="/plants" method="get">
+<!--       <form action="/plants" method="get">
         <input type="text" name="name" placeholder="Type of plant">
         <input type="text" name="origin" placeholder="Country of origin">
         <input class="btn-treehouse" type="submit" value="Submit">
-      </form>
+      </form> -->
+      <%= form_tag plants_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a plant"
+  %>
+<% end %>
     </div>
   </div>
 </div>
@@ -40,9 +47,13 @@
           <%= cl_image_tag plant.user.photo, class: "card-avatar avatar" %>
         </div>
         </div>
-       <div class="btn-book">
-          <%= link_to "Book", new_plant_transaction_path(plant) %>
-          <%= link_to "Discuss", new_plant_message_path(plant) %>
+        <div class="links">
+         <div type="button" class="btn btn-book">
+            <%= link_to "Book", new_plant_transaction_path(plant) %>
+          </div>
+          <div type="button" class="btn btn-discuss"">
+            <%= link_to "Discuss", new_plant_message_path(plant) %>
+          </div>
         </div>
       </div>
       <%end %>
