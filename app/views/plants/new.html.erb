@@ -1,16 +1,23 @@
-<div class="container form-major">
-<h1> Mettez une nouvelle plante en location </h1>
+
+<div class="bodysub" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,6)), url(<%= asset_url("wow.jpeg")%>)">
+<div class="container" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url("addnew.jpg")%>)">
+<div class="contform">
+<h1 style="color:white"> Louez votre votre petite plante ! </h1>
   <%= simple_form_for(@plant) do |f| %>
-    <%= f.input :name, placeholder: 'Eucalyptus' %>
-    <%= f.input :description, placeholder: 'Belle plante pour votre intérieur' %>
-    <%= f.input :origin, placeholder: 'Indes' %>
-    <%= f.input :availability %>
-    <%= f.input :pricepermonth, placeholder: 'Quel prix mensuel?' %>
-    <%= f.input :address, placeholder: '57 avenue Victor Hugo 75116' %>
+    <%= f.input :name, label:'Nom de la plante' %>
+    <%= f.input :description %>
+    <%= f.input :origin, label: 'Origine'%>
+    <%= f.input :availability, label: 'Disponibilité' %>
+    <%= f.input :pricepermonth, label: 'Prix mensuel' %>
+    <%= f.input :address, label: 'Adresse' %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
+    <div class = "submit">
     <%= f.submit %>
+    </div>
   <% end %>
+</div>
+</div>
 </div>
 
 <div class="footer">
