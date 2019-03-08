@@ -8,6 +8,8 @@
 @import "footer";
 @import "tabs";
 @import "message";
+@import "form";
+@import "profile";
 
 
 .container2 {
@@ -36,6 +38,7 @@
   margin-right:10px;
 }
 
+
 .container {
   color:white;
   margin: auto;
@@ -57,4 +60,10 @@
 }
 .contform h1 {
   margin-bottom: 30px;
+
+  
+.container-show {
+  display:flex;
+  justify-content: space-around;
+
 }

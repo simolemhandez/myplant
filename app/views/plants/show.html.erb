@@ -1,4 +1,3 @@
-<h1><%= @plant.name %></h1>
 
 <% if policy(@plant).edit? %>
   <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, plant_path(@plant), method: :delete, data: { confirm: "Are you sure?" } %>
@@ -6,24 +5,40 @@
 <% if policy(@plant).update? %>
   <%= link_to '<i class="fas fa-pen"></i>'.html_safe, edit_plant_path(@plant) %>
   <% end %>
-<%= link_to '<i class="fas fa-home"></i>'.html_safe, plants_path %>
 
-<p> <strong>Description :</strong> <%= @plant.description %></p>
-<p> <strong>Availability : </strong><%= @plant.availability %></p>
-<p> <strong>Origin : </strong><%= @plant.origin %></p>
-<p> <strong>Price per month : </strong><%= @plant.pricepermonth %></p>
-<p> <strong>Address : </strong><%= @plant.address %></p>
 
-<%= cl_image_tag @plant.photo, height: 300, width: 400, crop: :fill %>
+<div class="container-show">
+<div class="span3 well col-xs-12 col-sm-6">
+  <center>
+    <h3><%= @plant.name %></h3>
+    <a href="#aboutModal" data-toggle="modal" data-target="#myModal">
 
-<div class="container3">
-  <h1>Posté par : <%= link_to @plant.user.name, go_to_profile_path(@plant.user.id) %> </h1>
 
-  <h1><%= @plant.user.email %> </h1>
-  <%= cl_image_tag @plant.user.photo, height: 300, width: 400, crop: :fill, class: "card-avatar avatar" %>
-  <h1><%= @plant.user.location %> </h1>
+        <%= cl_image_tag @plant.photo, height: 300, width: 400, crop: :fill, class: "profile-avatar" %>
+
+    </a>
+
+    <h4> <strong>Description :</strong> <%= @plant.description %></h4>
+    <h4> <strong>Availability : </strong><%= @plant.availability %></h4>
+    <h4> <strong>Origin : </strong><%= @plant.origin %></h4>
+    <h4> <strong>Price per month : </strong><%= @plant.pricepermonth %></h4>
+    <h4> <strong>Address : </strong><%= @plant.address %></h4>
+  </center>
 </div>
 
+
+<div class="span3 well col-xs-12 col-sm-6">
+  <center>
+    <h3>Posté par : <%= link_to @plant.user.name, go_to_profile_path(@plant.user.id) %> </h3>
+    <a href="#aboutModal" data-toggle="modal" data-target="#myModal">
+
+        <%= cl_image_tag @plant.user.photo, height: 300, width: 400, crop: :fill, class: "profile-avatar" %>
+    </a>
+      <h4><%= @plant.user.location %> </h4>
+    <h4><%= @plant.user.email%> </h4>
+  </center>
+</div>
+</div>
 
 
 <div class="footer">

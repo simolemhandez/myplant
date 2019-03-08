@@ -2,7 +2,11 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = policy_scope(Transaction)
+  end
+
+  def mytransactions
     @my_transactions = Transaction.received_by(current_user)
+    authorize :transaction, :mytransactions?
   end
 
   def new
@@ -25,9 +29,17 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def accept
+    @transaction = Transaction.find(params[:id])
+    @transaction.status = 'accepted'
+    authorize @transaction
+    @transaction.save
+    redirect_to transactions_path
+  end
+
   private
 
   def transaction_params
-    params.require(:transaction).permit(:date, :time, :rating, :user_id, :plant_id)
+    params.require(:transaction).permit(:start_date, :end_date, :rating, :user_id, :plant_id)
   end
 end
