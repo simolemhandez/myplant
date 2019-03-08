@@ -15,7 +15,7 @@
   </li>
 </ul>
 
-<h1> Demandes envoyées </h1>
+<!-- <h1> Demandes envoyées </h1> -->
 </div>
   <div class="container2">
     <div class="row">
@@ -30,7 +30,7 @@
               <li><%= Plant.find(transaction.plant_id).name %></li>
               <li> <p> <%=Plant.find(transaction.plant_id).description %> </p></li>
               <li> <p> Prix mensuel : <%= Plant.find(transaction.plant_id).pricepermonth%>€ </p></li>
-              <li> <p> Vous avez loué cette plante <strong><%= transaction.date %> </strong> pour <strong> <%= transaction.time %></strong>.</p></li>
+              <li> <p> Vous avez loué cette plante du <strong> <%= transaction.start_date %></strong> jusqu'au <strong> <%= transaction.end_date %></strong></p></li>
               <li> <p id="owner"> Posté par : <%= Plant.find(transaction.plant_id).user.name %> </p> </li>
               <li>
                 <% if transaction.status == 'accepted' %>

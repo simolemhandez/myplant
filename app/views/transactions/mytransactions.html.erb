@@ -26,7 +26,7 @@
               <li><%= Plant.find(transaction.plant_id).name %></li>
               <li> <p> <%=Plant.find(transaction.plant_id).description %> </p></li>
               <li> <p> Prix mensuel : <%= Plant.find(transaction.plant_id).pricepermonth%>€ </p></li>
-              <li> <p> Vous avez mis en location cette plante à partir du <strong><%= transaction.date %> </strong> pour <strong> <%= transaction.time %></strong>.</p></li>
+                  <li> <p> Vous avez mis  cette plante en location du <strong> <%= transaction.start_date %></strong> jusqu'au <strong> <%= transaction.end_date %></strong></p></li>
               <li> <p id="owner"> Loué à : <%= User.find(transaction.user_id).name %> </p> </li>
                <li>
                 <% if transaction.status == 'accepted' %>
@@ -39,7 +39,7 @@
             <%= cl_image_tag User.find(transaction.user_id).photo, class: "card-avatar avatar" %>
           </div>
         </div>
-            <%= link_to "Accept", accept_transaction_path(transaction.id), class: "btn-medium"  %>
+            <%= link_to "Accept", accept_transaction_path(transaction.id), class: "btn-book"  %>
       </div>
       <%end %>
       <% end %>

@@ -9,6 +9,7 @@
 @import "tabs";
 @import "message";
 @import "form";
+@import "profile";
 
 
 .container2 {
@@ -36,4 +37,9 @@
 .links {
   text-align:right;
   margin-right:10px;
+}
+
+.container-show {
+  display:flex;
+  justify-content: space-around;
 }

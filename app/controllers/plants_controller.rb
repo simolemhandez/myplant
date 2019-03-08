@@ -14,9 +14,9 @@ class PlantsController < ApplicationController
       @plants = policy_scope(Plant).where("name ILIKE ?", "%#{params[:query]}%")
       # raise
     else
-      @plants = Plant.all
+      @plants = policy_scope(Plant)
     end
-    
+
     @myplants = Plant.where.not(latitude: nil, longitude: nil)
 
 
