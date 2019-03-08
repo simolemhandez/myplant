@@ -8,6 +8,13 @@ Rails.application.routes.draw do
   end
   get 'profile', to: 'users#profile', as: :profile
   get 'utilisateur/:id', to: 'users#go_to_profile', as: :go_to_profile
-  resources :transactions, only: :index
+  get 'mytransactions', to: 'transactions#mytransactions', as: :mytransactions
+  resources :transactions, only: :index do
+    member do
+      get 'accept', to: 'transactions#accept'
+    end
+  end
   resources :messages, only: :index
 end
+
+

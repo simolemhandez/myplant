@@ -9,11 +9,19 @@ class TransactionPolicy < ApplicationPolicy
     return true
   end
 
+  def mytransactions?
+    return true
+  end
+
   def new?
     return true
   end
 
   def create?
     return true
+  end
+
+  def accept?
+    record.plant.user == user
   end
 end

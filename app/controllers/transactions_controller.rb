@@ -2,7 +2,11 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = policy_scope(Transaction)
+  end
+
+  def mytransactions
     @my_transactions = Transaction.received_by(current_user)
+    authorize :transaction, :mytransactions?
   end
 
   def new
@@ -23,6 +27,14 @@ class TransactionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def accept
+    @transaction = Transaction.find(params[:id])
+    @transaction.status = 'accepted'
+    authorize @transaction
+    @transaction.save
+    redirect_to transactions_path
   end
 
   private

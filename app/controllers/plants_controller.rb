@@ -10,9 +10,9 @@ class PlantsController < ApplicationController
       @plants = policy_scope(Plant).where(name: params[:name], origin: params[:origin])
     end
 
-    @plants = Plant.where.not(latitude: nil, longitude: nil)
+    @myplants = Plant.where.not(latitude: nil, longitude: nil)
 
-    @markers = @plants.map do |plant|
+    @markers = @myplants.map do |plant|
       {
         lng: plant.longitude,
         lat: plant.latitude
